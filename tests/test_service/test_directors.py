@@ -16,7 +16,8 @@ def director_dao():
     director3 = Director(id=3, name="director3")
 
     director_dao.get_one = MagicMock(return_value=director1)
-    director_dao.get_all = MagicMock(returm_value=[director1, director2, director3])
+    directors_list = [director1, director2, director3]
+    director_dao.get_all = MagicMock(return_value=directors_list)
     director_dao.create = MagicMock(return_value=Director(id=4))
     director_dao.delete = MagicMock()
     director_dao.update = MagicMock()

@@ -43,7 +43,8 @@ def movie_dao():
                    director="Director3")
 
     movie_dao.get_one = MagicMock(return_value=movie1)
-    movie_dao.get_all = MagicMock(returm_value=[movie1, movie2, movie3])
+    movies_list = [movie1, movie2, movie3]
+    movie_dao.get_all = MagicMock(return_value=movies_list)
     movie_dao.create = MagicMock(return_value=Movie(id=4))
     movie_dao.delete = MagicMock()
     movie_dao.update = MagicMock()

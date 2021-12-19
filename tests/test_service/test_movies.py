@@ -56,6 +56,29 @@ class TestMovieService():
         self.movie_service = MovieService(dao=movie_dao)
 
     def test_get_one(self):
-        breakpoint()
         movie = self.movie_service.get_one(1)
+        assert movie != None
+        assert movie.id != None
 
+    def test_get_all(self):
+        movies = self.movie_service.get_all()
+        assert len(movies) > 0
+
+    def test_create(self):
+        movie_d = {
+            "title": "movie11",
+            "year": 1999
+        }
+        movie = self.movie_service.create(movie_d)
+        assert movie.id != None
+
+    def test_delete(self):
+        self.movie_service.delete(1)
+
+    def test_update(self):
+        movie_d = {
+            "id":3,
+            "title":"movie55",
+            "year":2222
+        }
+        self.movie_service.update(movie_d)
